@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>INFOYSAV'16 | Coming Soon</title>
+        <title>INFOTSAV'16 | Coming Soon</title>
         <style type="text/css">
         .terminal-results{
 
@@ -11,6 +11,30 @@
     {
         z-index: -1000;
     }
+        .terminal-line {
+            z-index:10;
+        }
+        .terminal .vintage-terminal
+        {
+         z-index:10;   
+        }
+        .terminal vintage-terminal {
+            z-index:2;
+        }
+
+        .container{
+            z-index:-98;
+        }
+
+        .terminal-focused{
+            z-index: 2;
+        }
+        img {
+            z-index:-1;
+            left:20%;
+        }
+
+
         </style>
         <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicons/favicon.ico" type="image/x-icon">
@@ -40,9 +64,9 @@
         <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
         <link href="example/content/example.css" rel="stylesheet" />
     </head>
-    <body ng-app="ng-terminal-example">
-        <section class="console-section">
-            <section class="container">
+    <body ng-app="ng-terminal-example" style="z-index:-100">
+        <section class="console-section" style="z-index:-99">
+            <section class="container" style="z-index:-98">
                 <section class="head">
 
                     <h1><span style="font-family: 'Play', sans-serif; color: #66ff33">INFOTSAV'16</span></h1>
@@ -52,10 +76,10 @@
                     </div>
                 </section>
                
-                <div ng-controller="console" ng-show="theme == 'vintage'">
+                <div ng-controller="console" ng-show="theme == 'vintage'" style="z-index:1">
                  
-                    <terminal terminal-class="vintage-terminal" terminal-config="vintage">
-                    <img class="bgs" src="logo.png" style="width:50%; height:80%; position:absolute; top:18%; left:24%; ">
+                    <terminal terminal-class="vintage-terminal" terminal-config="vintage" style="z-index:2" >
+                    <img class="bgs" src="logo.png" style="width:50%; height:80%; position:absolute; top:18%; left:24% z-index:-1; " >
                         <p class="click-me"></p>
                     </terminal>
                 </div>
