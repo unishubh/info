@@ -1,4 +1,21 @@
-﻿angular.module('ng-terminal-example', ['vtortola.ng-terminal', 'ng-terminal-example.command.tools', 'ng-terminal-example.command.implementations', 'ng-terminal-example.command.filesystem'])
+﻿function mailit(s)
+{
+    var d=s.indexOf(' ');
+    t=s.substring(d);
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      
+    }
+  };
+  xhttp.open("GET", "/example/insert.php?mail="+t, true);
+  xhttp.send();
+    //alert(t);
+
+}
+
+
+angular.module('ng-terminal-example', ['vtortola.ng-terminal', 'ng-terminal-example.command.tools', 'ng-terminal-example.command.implementations', 'ng-terminal-example.command.filesystem'])
 .provider('$ga', function () {
 
     window['GoogleAnalyticsObject'] = 'ga';
@@ -82,6 +99,15 @@
 
     $scope.$on('terminal-input', function (e, consoleInput) {
         var cmd = consoleInput[0];
+        //console.log(cmd.command);
+        //alert(cmd.command);
+        var s=cmd.command;
+        if(s.indexOf('mail ')!= -1)
+        {
+            mailit(s);
+          $scope.session.output.push({ output: true, breakLine: true, text: [' But, your email Id has been registered'] });  
+        }
+
 
         $ga('send', 'event', 'Console', 'Input', cmd.command );
         try {

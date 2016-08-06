@@ -172,6 +172,16 @@
             expect(function () { fs.readFile("file.txt"); }).toThrowError("The file does not exist");
         });
 
+         it('Can Send mails', function () {
+            /*fs.createDir("myDir");
+            fs.path("myDir");
+            fs.writeFile("file.txt", "hello");
+            expect(fs.readFile("file.txt")).toEqual("hello");
+            expect(fs.path()).toEqual("\\myDir");
+            fs.path("..");
+            expect(function () { fs.readFile("file.txt"); }).toThrowError("The file does not exist");*/
+        });
+
         it('Can list', function () {
             var list = fs.list();
             expect(list.files.length).toEqual(0);
@@ -209,6 +219,14 @@
             });
 
         });
+
+        describe ('mail' ,function () {
+            it('Can Send mails',function() {
+                alert("Andar");
+                expect(session.output.length).toEqual(1);
+                expect(session.output[0].text[0]).toEqual(' Mail Recorded.');
+            })
+        })
 
         describe('rmdir', function () {
 

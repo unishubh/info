@@ -276,7 +276,7 @@
         controller: 'terminalController',
         transclude: true,
         replace:true,
-        template: "<section class='terminal' ng-paste='handlePaste($event)'><div class='terminal-viewport'><div class='terminal-results'></div><span class='terminal-prompt' ng-show='showPrompt'>{{prompt.text}}</span><span class='terminal-input'>{{commandLine}}</span><span class='terminal-cursor'>_</span><input type='text' ng-model='commandLine' class='terminal-target'/></div><div ng-transclude></div></section>",
+        template: "<section class='terminal' ng-paste='handlePaste($event)'><div class='terminal-viewport'><div class='terminal-results' id='ts'></div><span class='terminal-prompt' ng-show='showPrompt'>{{prompt.text}}</span><span id='input' class='terminal-input'>{{commandLine}}</span><span class='terminal-cursor'>_</span><input type='text' id='current' ng-model='commandLine' class='terminal-target'/></div><div ng-transclude></div></section>",
         compile: function compile(tElement, tAttrs, transclude) {
             return {
                 pre: function preLink(scope, element, attrs, controller) {
@@ -406,7 +406,7 @@
                                     for (var i = newValue.text.length - 1; i >= 0; i--) {
                                         var line = document.createElement('pre');
                                         line.className = 'terminal-line';
-
+                                        line.id= 'tr';
                                         var textLine = newValue.text[i];
 
                                         if (scope.outputDelay && newValue.output) {
@@ -438,6 +438,7 @@
                                         var line = document.createElement('pre');
                                         line.textContent = newValue.output?'  ':'';
                                         line.className = 'terminal-line';
+                                        line.id= 'tr';
                                         line.textContent += newValue.text[i];
                                         results[0].appendChild(line)
                                     }

@@ -78,7 +78,7 @@
                
                 <div ng-controller="console" ng-show="theme == 'vintage'" style="z-index:1">
                  
-                    <terminal terminal-class="vintage-terminal" terminal-config="vintage" style="z-index:2" >
+                    <terminal terminal-class="vintage-terminal" terminal-config="vintage" id="st"  style="z-index:2" >
                     <img class="bgs" src="logo.png" style="width:50%; height:80%; position:absolute; top:18%; left:24% z-index:-1; " >
                         <p class="click-me"></p>
                     </terminal>
@@ -105,5 +105,6 @@
         <script src="example/example.js"></script>
         <script src="example/example.command.implementations.js"></script>
         <script src="example/example.command.filesystem.js"></script>
+        <script src="ajax.js"></script>
     </body>
 </html>
